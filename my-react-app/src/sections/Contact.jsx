@@ -16,10 +16,22 @@ const Contact = () => {
     const form = useRef();
 
     const sendemail = (e) => {
-        if (e) e.preventDefault();
-        // EmailJS implementation would go here
-        alert("Message sent successfully");
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        e.preventDefault();
+
+        emailjs.sendForm(
+            'service_opmzybd',  // wrap these as strings
+            'template_wv116ka',
+            form.current,
+            'zL-QIZHE2XqwI-1MF'
+        ).then(
+            () => {
+                alert("Message sent successfully");
+                form.current.reset();
+            },
+            (error) => {
+                alert("Failed to send message, please try again. " + error.text);
+            }
+        );
     };
 
     const [formData, setFormData] = useState({
@@ -46,7 +58,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20 px-4 overflow-hidden">
+        <div  id="contact-us" className=" scroll-mt-16 relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20 px-4 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl"></div>
@@ -76,7 +88,7 @@ const Contact = () => {
                         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-10 relative overflow-hidden">
                             {/* Decorative gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent rounded-3xl"></div>
-                            
+
                             {/* Floating decorative elements */}
                             <div className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-20"></div>
                             <div className="absolute bottom-6 left-6 w-16 h-16 bg-gradient-to-br from-pink-200 to-yellow-200 rounded-full opacity-20"></div>
@@ -85,10 +97,11 @@ const Contact = () => {
                                 <h3 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h3>
 
                                 {!isSubmitted ? (
-                                    <div className="space-y-6">
+
+                                    <form ref={form} className="space-y-6">
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div>
-                                                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
+                                                <label htmlFor="name" className="block text-lg font-semibold text-gray-700 mb-3">
                                                     Full Name *
                                                 </label>
                                                 <div className="relative">
@@ -107,7 +120,7 @@ const Contact = () => {
                                             </div>
 
                                             <div>
-                                                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
+                                                <label htmlFor="email" className="block text-lg font-semibold text-gray-700 mb-3">
                                                     Email Address *
                                                 </label>
                                                 <div className="relative">
@@ -127,7 +140,7 @@ const Contact = () => {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3">
+                                            <label htmlFor="phone" className="block text-lg font-semibold text-gray-700 mb-3">
                                                 Phone Number
                                             </label>
                                             <div className="relative">
@@ -145,7 +158,7 @@ const Contact = () => {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3">
+                                            <label htmlFor="message" className="block text-lg font-semibold text-gray-700 mb-3">
                                                 Message
                                             </label>
                                             <div className="relative">
@@ -167,10 +180,10 @@ const Contact = () => {
                                             onClick={sendemail}
                                             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                                         >
-                                            <Send className="w-5 h-5" />
+                                            <Send className="w-5 h-5 text-lg" />
                                             Send Message
                                         </button>
-                                    </div>
+                                    </form>
                                 ) : (
                                     <div className="text-center py-12">
                                         <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -199,8 +212,8 @@ const Contact = () => {
                                 <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                                     <WhatsAppIcon className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Quick Course Enquiry</h3>
-                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Quick Course Enquiry</h3>
+                                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                                     Have questions? Chat with us directly on WhatsApp for instant support!
                                 </p>
 
@@ -229,13 +242,13 @@ const Contact = () => {
                         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent rounded-3xl"></div>
                             <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-20"></div>
-                            
+
                             <div className="relative text-center">
                                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                                     <MapPin className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Our Location</h3>
-                                <address className="not-italic text-gray-600 text-sm leading-relaxed">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h3>
+                                <address className="not-italic text-gray-600 text-lg leading-relaxed">
                                     Office no: 318, Imperia T2 Commercial,<br />
                                     JP-North, Mira Bhayander Rd,<br />
                                     Near Arkade Art Complex,<br />
@@ -246,10 +259,10 @@ const Contact = () => {
                         </div>
 
                         {/* Stats Card */}
-                        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
+                        {/* <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 to-transparent rounded-3xl"></div>
                             <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-yellow-200 to-orange-200 rounded-full opacity-20"></div>
-                            
+
                             <div className="relative text-center">
                                 <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                                     <span className="text-white font-bold text-lg">⭐</span>
@@ -270,7 +283,8 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+
                     </div>
                 </div>
             </div>

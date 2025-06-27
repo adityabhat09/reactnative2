@@ -25,7 +25,7 @@ const AboutUs = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-br from-blue-50 to-white py-12">
+        <div id="about-us" className="bg-gradient-to-br scroll-mt-16 from-blue-50 to-white py-12">
             {/* Hero Section */}
             <div className="max-w-full px-6 text-center mb-12">
                 <h1 className="text-5xl font-bold text-gray-800 mb-6">

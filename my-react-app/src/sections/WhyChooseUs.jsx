@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className="py-22 bg-blue-50 relative overflow-hidden">
+        <section id="why-choose-us" className="py-22 scroll-mt-16 bg-blue-50 relative overflow-hidden">
             <div className="container mx-auto px-20">
 
                 {/* Main Content Card */}

@@ -244,7 +244,7 @@ const Curriculum = () => {
     ];
 
     return (
-        <section className="py-16  bg-blue-50">
+        <section className="py-16 scroll-mt-22  bg-blue-50">
             <div id="curriculum" className="max-w-full px-20 mx-auto  scroll-mt-16">
                 {/* Header */}
                 <div className="text-center mb-12">

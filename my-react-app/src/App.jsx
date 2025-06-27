@@ -4,6 +4,7 @@ import WhyChooseUs from './sections/WhyChooseUs'
 import Curriculum from './sections/Curriculum'
 import AboutUs from './sections/AboutUs'
 import Contact from './sections/Contact'
+import Navbar from './sections/Navbar'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+    <Navbar/>
     <Hero/>
     <WhyChooseUs/>
     <Curriculum/>
