@@ -4,9 +4,9 @@ import heroimg from '../images/heroimg.png'
 import heroimg2 from '../images/heroimg2.png'
 const Hero = () => {
     return (
-        <div className='bg-gradient-to-br min-h-screen p-6 flex justify-center'>
+        <div className='bg-gradient-to-br min-h-screen p-6 flex justify-center pt-16'>
             <div className='max-w-8xl '>
-                <div className='bg-[#E8F6FF] rounded-3xl shadow-xl overflow-hidden border-4 border-blue-200'>
+                <div className='bg-[#E8F6FF] rounded-3xl shadow-lg overflow-hidden border-4 border-blue-200'>
                     <div className='flex flex-col lg:flex-row '>
                         {/* Left Content */}
                         <div className='lg:w-3/5 p-8 lg:p-12 space-y-8 align-middle'>
@@ -16,7 +16,7 @@ const Hero = () => {
                                     <br />
                                     Potential with
                                     <br />
-                                    <span className='text-blue-600'>Online Learning</span>
+                                    <span className='text-[#B41D72]'>JustAcademy</span>
                                 </h1>
                                 
                                 <p className='text-gray-600 text-lg leading-relaxed'>
