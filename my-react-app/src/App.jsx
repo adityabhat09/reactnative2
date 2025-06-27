@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Hero from './sections/hero'
 import WhyChooseUs from './sections/WhyChooseUs'
+import Curriculum from './sections/Curriculum'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
     <Hero/>
     <WhyChooseUs/>
+    <Curriculum/>
       
     </>
   )
